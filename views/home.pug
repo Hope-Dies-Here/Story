@@ -1,0 +1,35 @@
+extends layout
+block layout-content
+ //a(href="/friemds") friemds
+ 
+ br 
+ div.container
+   div.row.justify-content-around
+    div.col.mb-3
+     div.card.text-dark.border-dark()
+      h5.card-header.text-light.bg-dark Suggested
+      div.card-body
+       h5.card-title Fundamentals
+       p.card-text Web development is the easiest way to start your career as a programmer/developer 
+       a(href="/fundamentals").btn.btn-dark Start Now
+    div.col.mb-3
+     div.card.text-dark.border-dark.bg-light()
+      h5.card-header.bg-dark.text-light Featured
+      div.card-body
+       h5.card-title Web Development
+       p.card-text Web development is the easiest way to start your career as a programmer/developer 
+       a.btn.btn-dark Start Now
+    div.col.mb-3
+     div.card.text-dark.border-dark.bg-light()
+      h5.card-header.bg-dark.text-light Other option
+      div.card-body
+       h5.card-title Game Development
+       p.card-text Game development is the another option for you to start your career as a programmer/developer 
+       a.btn.btn-dark Start Now
+  
+ br 
+ hr 
+ form(method="post" action ="/logout").mt-5
+  input.btn.btn-sm.btn-warning(type="submit" value="Logout")
+ 
+  

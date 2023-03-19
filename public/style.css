@@ -1,0 +1,44 @@
+body {
+  
+}
+.post{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  margin: auto;
+  width: 90%;
+  border: 1px solid teal;
+  padding: 40px 20px;
+  border-radius: 5px;
+}
+#storyPostBtn{
+  width: fit-content;
+}
+form label{
+  font-size: 13px;
+  margin-left: -2px;
+}
+.tit{
+  color: teal;
+  text-align: centyer;
+}
+#err{
+  color: red;
+  font-size: 9px;
+  text-align: center;
+  margin: 0;
+}
+.input{
+  font-size: 8px;
+  padding: 6px 0px 1px 4px;
+}
+textarea, #story{
+  font-size: 12px;
+  outline: none;
+}
+
+.white{
+  white-space: pre-wrap;
+  text-align: justify;
+}

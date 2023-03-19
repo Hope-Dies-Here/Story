@@ -1,0 +1,11 @@
+extends layout 
+block layout-content
+ div.alert.alert-success.text-dark.mx-3.pb-0 
+  h5.text-center Edit Your Story
+ div.post.form-group
+  form.form-group(method="post" action="/updateStory/"+id)
+   label(for="title") Title
+   input(type="text" value=title name="title" required).form-control#title
+   label(for="story") The Story
+   textarea(name="story" rows="10" cols="50" required).form-control#story #{story}
+   input.btn.btn-success.mt-3(type="submit" value="UPDATE STORY")

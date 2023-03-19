@@ -1,0 +1,14 @@
+extends layout
+block layout-content
+ head
+  title node
+  link(rel = "stylesheet" href ="style.css")
+ body
+  form(method = "post" action = "/check")
+   h1.tit Login 
+   p#err #{err}
+   label Username
+   input.input(type ="text" name = "username" value = u)
+   label Password
+   input.input(type ="text" value = p name = "password")
+   input#login(type = "submit" value = "Login")
