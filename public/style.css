@@ -1,6 +1,22 @@
 body {
   
 }
+.logForm{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: auto;
+  gap: 5px;
+  padding: 50px 25px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 5px rgba(0,0,0,0.5);
+  border: 1px solid blue;
+  abackground-color: #f7fafa;
+}
+.login{
+  margin-top: 5px;
+  width: fit-content;
+}
 .post{
   display: flex;
   flex-direction: column;
@@ -20,8 +36,7 @@ form label{
   margin-left: -2px;
 }
 .tit{
-  color: teal;
-  text-align: centyer;
+  text-align: center;
 }
 #err{
   color: red;
@@ -41,4 +56,9 @@ textarea, #story{
 .white{
   white-space: pre-wrap;
   text-align: justify;
+  font-size: 18px;
+}
+
+cite {
+  font-size: 16px;
 }

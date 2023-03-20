@@ -8,7 +8,13 @@ const storySchema = new mongoose.Schema({
   story: {
     type: String,
     required: true
+  },
+  owner: {
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User'
   }
 })
+
+
 
 module.exports = mongoose.model('Story', storySchema)

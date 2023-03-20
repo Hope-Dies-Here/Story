@@ -1,5 +1,5 @@
 const express = require("express");
-const app = express();
+const app = express.Router();
 const port = 3000;
 const path = require ("path");
 const pug = require('pug');
@@ -20,9 +20,6 @@ const accounts = [
   }
 ]
 
-app.set('view engine', 'pug');
-app.set('views', './views');
-
 app.use(sessions({
   secret: 'theSecretInGridient',
   saveUninitialized: true,
@@ -39,10 +36,10 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(express.static(path.join(__dirname, 'public')))
-app.use("/test", home)
+
 app.get("/", (req, res)=>{
   
-  res.redirect("/home")
+  res.render("index")
   /*
   if(req.session.user){
     res.redirect("/home")
@@ -77,7 +74,7 @@ app.post("/check", (req, res) => {
   }
   
 })
-app.get('/home', (req, res) => {
+app.get('/hohme', (req, res) => {
   //some("my note")
   /* session = req.session
   if(session.userid || session.user){
@@ -91,55 +88,13 @@ app.get('/home', (req, res) => {
 })
 
 
-app.get("/friemds", (req, res) => {
- res.render('friends', {
-   friemds: accounts
- })
-})
-
-app.get("/friemds/:id", (req,res) => {
-  const id = req.params.id 
-  console.log("lmao " + accounts.length)
-  if(id >= accounts.length || isNaN(id)){
-    res.send("u stupid")
-  } else{
-    res.render('msg', {
-      name: accounts[id].name
-    })
-    //res.send(accounts[id].name)
-  }
-})
-app.get("/fundamentals", (req, res) => {
-  res.render('fundamentals')
-})
-let stories = []
-app.get('/stories', (req, res) => {
-  res.render("stories", {
-    stories: stories
-  })
-})
 
 
-app.post("/postStory", (req, res) => {
-  const story = req.body.story 
-  const title = req.body.title
-  
-  stories.push({
-    title: title,
-    story: story
-  })
-  console.log(stories)
-  res.redirect('/stories')
-})
 app.post("/logout", (req, res) => {
   req.session.destroy();
   res.redirect("/")
 })
 
 
-app.listen(port, ()=>{
-  
-  console.log(`server at ${port}`)
-  
-})
+module.exports = app
 

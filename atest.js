@@ -3,8 +3,10 @@ const app = express();
 const router = express.Router()
 const path = require ("path");
 const pug = require('pug');
+
 const bodyParser = require("body-parser");
 const test = require("./Router/test.js")
+const index =require("./index.js")
 const mongoose = require ("mongoose")
 
 mongoose.connect("mongodb://localhost/stories", {

@@ -7,6 +7,7 @@ block layout-content
   div 
  div.form-group.mb-4
   form.post.form-group(method="post" action="/postStory")
+   h1.text-info.text-center The Post Story
    label(for="title") Title
    input(type="text" name="title" required).form-control#title
    label(for="story") The Story
@@ -21,12 +22,19 @@ block layout-content
     div.col.mx-2.mb-5
      div.card.text-dark.border-dark.bg-light
       h5.card-header.text-light.bg-dark #{story.title}
-      div.card-body.text-dark
-       p.white #{story.story}
-      div.card-footer.d-flex.justify-content-around
-       form(method="get" action="/"+story.id)
-        input.btn.px-5.btn-dark(type="submit" value="Edit")
-       form(method="post" action="/delete/"+story.id)
-        input.btn.btn-danger.px-5(type="submit" value="Delete")
-        //a.btn.btn-danger(href=story.id) Delete
- 
+      div.card-body.text-dark.border-primary
+       blockquote.blockquote
+        p.white #{story.story}
+        footer.blockquote-footer
+         if story.owner.username == sesUn
+          cite You
+         else
+          cite.text-right #{story.owner.name}
+      if story.owner.username == sesUn
+        div.card-footer.d-flex.justify-content-around
+         form(method="get" action="/"+story.id)
+          input.btn.px-5.btn-dark(type="submit" value="Edit")
+         form(method="post" action="/delete/"+story.id)
+          input.btn.btn-danger.px-5(type="submit" value="Delete")
+          //a.btn.btn-danger(href=story.id) Delete
+   

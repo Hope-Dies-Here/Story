@@ -4,11 +4,14 @@ block layout-content
   title node
   link(rel = "stylesheet" href ="style.css")
  body
-  form(method = "post" action = "/check")
-   h1.tit Login 
+  form.logForm(method = "post" action = "/check")
+   h1.text-primary.tit Login 
    p#err #{err}
    label Username
-   input.input(type ="text" name = "username" value = u)
+   input.form-control(type ="text" name = "username" value = u required)
    label Password
-   input.input(type ="text" value = p name = "password")
-   input#login(type = "submit" value = "Login")
+   input.form-control(type ="text" value = p name = "password" required)
+   input.mb-2.btn.btn-primary.login(type = "submit" value = "Login")
+   i
+    label.text-center.text-muted you dont have an account 
+     a.form(href="/register") Register Now
