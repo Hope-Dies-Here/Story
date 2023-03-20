@@ -12,7 +12,7 @@ block layout-content
    input(type="text" name="title" required).form-control#title
    label(for="story") The Story
    textarea(name="story" rows="8" cols="50" required).form-control#story
-   input#storyPostBtn.mt-2.btn.btn-success.btn-md(type="submit" value="POST STORY")
+   input#storyPostBtn.mt-2.btn.btn-primary.btn-md(type="submit" value="POST STORY")
  br 
  hr 
  h1.text-info.text-center The Story Page
@@ -21,7 +21,11 @@ block layout-content
   div.row.justify-content-center
     div.col.mx-2.mb-5
      div.card.text-dark.border-dark.bg-light
-      h5.card-header.text-light.bg-dark #{story.title}
+      if story.owner.username == sesUn
+       h5.card-header.text-light.bg-primary #{story.title}
+      else
+       h5.card-header.text-light.bg-dark #{story.title}
+      
       div.card-body.text-dark.border-primary
        blockquote.blockquote
         p.white #{story.story}
@@ -33,7 +37,7 @@ block layout-content
       if story.owner.username == sesUn
         div.card-footer.d-flex.justify-content-around
          form(method="get" action="/"+story.id)
-          input.btn.px-5.btn-dark(type="submit" value="Edit")
+          input.btn.px-5.btn-primary(type="submit" value="Edit")
          form(method="post" action="/delete/"+story.id)
           input.btn.btn-danger.px-5(type="submit" value="Delete")
           //a.btn.btn-danger(href=story.id) Delete

@@ -54,14 +54,17 @@ router.get("/", (req, res)=>{
   if(req.session.user){
     res.redirect("/home")
   } else if(req.session.err){
+    req.session.err = false
     res.render('index', {
       err: 'somthing is wromg!!',
       u: req.session.u
     })
+    
   }
   else{
     res.render('index', {
-      message: ''
+      message: '',
+      err: ''
     })
   }
 })
@@ -93,6 +96,7 @@ router.get("/register", (req, res)=> {
   if(req.session.existUsername == undefined){
     res.render('register')
   } else{
+    delete req.session.existUsername
     res.render('register', {
       name: req.session.existData.name,
       username: req.session.existData.username

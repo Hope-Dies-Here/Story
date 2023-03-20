@@ -5,12 +5,12 @@ block layout-content
   link(rel = "stylesheet" href ="style.css")
  body
   form.logForm(method = "post" action = "/check")
-   h1.text-primary.tit Login 
+   h1.tit Login 
    p#err #{err}
    label Username
    input.form-control(type ="text" name = "username" value = u required)
    label Password
-   input.form-control(type ="text" value = p name = "password" required)
+   input.form-control(type ="password" value = p name = "password" required)
    input.mb-2.btn.btn-primary.login(type = "submit" value = "Login")
    i
     label.text-center.text-muted you dont have an account 

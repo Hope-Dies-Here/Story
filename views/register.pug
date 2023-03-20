@@ -1,15 +1,19 @@
 extends layout
 block layout-content
  form.logForm(method="post" action="/register")
-  h2.text-info Register
+  h2.tit Register
   label Name
   input.form-control(value=name type="text" name="name" required)
   if(username)
-   label.text-danger Choose Username
+   label.text-danger Choose Username 
+    i (username taken!!)
    input.form-control(required value=username type="text" name="username" style="color: red; border-color: red;")
   else
    label Choose Username
    input.form-control(type="text" name="username" required)
   label Choose Password
-  input.form-control(type="text" name="password" required)
+  input.form-control(type="password" name="password" required)
   input.btn.btn-primary.login(type="submit")
+  i
+    label.text-center.text-muted you already have an account 
+     a.form(href="/") Login
